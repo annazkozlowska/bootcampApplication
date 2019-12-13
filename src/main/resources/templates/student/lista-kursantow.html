@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kursanci</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<h><b>Lista naszych kursantów:</b></h>
+
+<br><br>
+<a href = "/formularz">Dodaj nowego studenta</a>
+
+<br><br>
+
+<table>
+    <thead>
+    <tr>
+        <th >Imię</th>
+        <th >Nazwisko</th>
+        <th >E-mail</th>
+        <th >Telefon</th>
+        <th >Kurs</th>
+        <th >Tryb</th>
+        <th >x </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="student : ${allStudents}">
+        <td th:text="*{student.firstName}"></td>
+        <td th:text="*{student.lastName}"></td>
+        <td th:text="*{student.email}"></td>
+        <td th:text="*{student.phone}"></td>
+        <td th:text="*{student.courseName}"></td>
+        <td th:text="*{student.mode}"></td>
+        <td><a th:href="@{/usun(id=${student.id})}" th:text="usuń"></a>
+            <a th:href="@{/edytuj(id=${student.id})}" th:text="edytuj"></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br><br>
+<p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>
+
+</body>
+</html>
+

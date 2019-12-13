@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/add-student}" method="post" th:object="${student}">
+    Imie: <input type="text" th:field="*{firstName}">
+    <br><br>
+    Nazwisko: <input type="text" th:field="*{lastName}">
+    <br><br>
+    E-mail: <input type="text" th:field="*{email}">
+    <br><br>
+    Nr telefonu: <input type="text" th:field="*{phone}">
+    <br><br>
+
+    Kursy: <select th:field="*{courseName}">
+    <option value="Java" >Java</option>
+    <option value="Frontend" >Frontend</option>
+    <option value="Python" >Python</option>
+</select>
+    <br><br>
+
+    Tryby: <select th:field="*{mode}">
+    <option value="dzienny" >dzienny</option>
+    <option value="wieczorowy">wieczorowy</option>
+    <option value="weekendowy" >weekendowy</option>
+</select>
+    <br><br>
+
+    <input type="hidden" th:field="*{id}">
+
+    <input type="submit" value="Edytuj">
+</form>
+
+<br><br>
+<p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>
+
+</body>
+</html>

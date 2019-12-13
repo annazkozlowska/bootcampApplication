@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h>Witaj, formularz przyjęty!</h>
+
+<br><br>
+<h>Podsumowanie:</h>
+
+<br><br>
+
+<span th:text="'Imię: ' + ${trainer.getFirstName()}"></span>
+
+<br><br>
+
+<span th:text="'Nazwisko: ' + ${trainer.getLastName()}"></span>
+
+<br><br>
+
+<span th:text="'E-mail: ' + ${trainer.getEmail()}"></span>
+
+<br><br>
+
+<span th:text="'Stawka: ' + ${trainer.getSalary()}"></span>
+
+<br><br>
+
+<b>Prowadzone kursy:</b>
+
+<ul>
+    <li th:each="course: ${trainer.getCourses()}" th:text="${course}"></li>
+</ul>
+
+
+
+
+
+<br><br>
+<p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>
+</body>
+</html>

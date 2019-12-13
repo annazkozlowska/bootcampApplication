@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+Witaj, formularz przyjęty!
+
+<br><br><br>
+
+Podsumowanie:
+<br><br>
+<span th:text="'Imię: ' + ${student.getFirstName()}"></span>
+
+<br><br>
+
+<span th:text="'Nazwisko: ' + ${student.getLastName()}"></span>
+
+<br><br>
+
+<span th:text="'E-mail: ' + ${student.getEmail()}"></span>
+
+<br><br>
+
+<span th:text="'Telefon: ' + ${student.getPhone()}"></span>
+
+<br><br>
+
+<span th:text="'Wybrany kurs: ' + ${student.getCourseName()}"></span>
+
+<br><br>
+
+<span th:text="'Tryb kursu: ' + ${student.getMode()}"></span>
+
+<br><br>
+
+
+
+
+<br><br>
+<p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>
+
+
+</body>
+</html>

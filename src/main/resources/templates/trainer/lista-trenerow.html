@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trenerzy</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<h><b>Lista naszych trenerów:</b></h>
+<br><br>
+
+<table>
+    <thead>
+    <tr>
+        <th >Imię</th>
+        <th >Nazwisko</th>
+        <th >E-mail</th>
+        <th >Stawka</th>
+        <th >Kursy</th>
+        <th >x </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="trainer : ${allTrainers}">
+        <td th:text="*{trainer.firstName}"></td>
+        <td th:text="*{trainer.lastName}"></td>
+        <td th:text="*{trainer.email}"></td>
+        <td th:text="*{trainer.salary}"></td>
+        <td th:text="*{trainer.courses}"></td>
+
+        <td><a th:href="@{/usun2(id=${trainer.id})}" th:text="usuń"></a>
+            <a th:href="@{/edytuj2(id=${trainer.id})}" th:text="edytuj"></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+<br><br>
+<p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>
+</body>
+</html>
+

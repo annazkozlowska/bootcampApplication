@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona główna</title>
+</head>
+<body>
+
+Witaj <span th:text=" ${firstName} + '. ' + 'Masz' + ' ' + ${age} + ' lat.'"></span>
+Jesteś <span th:if="${age}>= 18 "> pełnoletnia</span><span th:if="${age}< 18 "> niepełnoletnia</span>
+
+<b><p><a href="#">Strona główna </a></p> </b>
+<p><a href="/kursy">Lista Kursów </a></p>
+<p><a href="/kursanci">Lista Kursantów </a></p>
+<p><a href="/trenerzy">Lista Trenerów </a></p>
+<p><a href="/formularz">Formularz dla studenta </a></p>
+<p><a href="/formularz2">Formularz dla trenera </a></p>
+
+
+
+</body>
+</html>
