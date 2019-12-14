@@ -31,4 +31,36 @@ public class StudentService {
     }
 
 
+    //poniżej metoda do wyszukiwania po parametrze
+    // jako parametry searchPhrase i columnName
+    public List<Student> getStudents(String searchPhrase, String columnName ){
+      switch (columnName){
+          case "firstName":
+              return studentRepository.getByFirstName(searchPhrase);
+
+          case "lastName":
+              return studentRepository.getByLastName(searchPhrase);
+
+          case "email":
+              return studentRepository.getByEmail(searchPhrase);
+
+          case "phone":
+              return studentRepository.getByPhone(searchPhrase);
+
+          case "courseName":
+              return studentRepository.getByCourseName(searchPhrase);
+
+          case "mode":
+              return studentRepository.getByMode(searchPhrase);
+
+      }
+      return null;
+    }
+
+    public List<Student> findByCourseNameAndMode(String courseName, String mode){
+      return  studentRepository.findByCourseNameAndMode(courseName, mode);
+    }
+
+
+
 }

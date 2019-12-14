@@ -14,7 +14,7 @@ public class StudentController {
     private StudentService studentService;
 
     @GetMapping(value = "/formularz-student")
-    public String form(Model model){
+    public String form(Model model) {
 
         Student student = Student.builder().build();
 
@@ -22,8 +22,9 @@ public class StudentController {
 
         return "student/formularz-student";
     }
-    @PostMapping(value ="/add-student")
-    public String addStudent(Student student, Model model){
+
+    @PostMapping(value = "/add-student")
+    public String addStudent(Student student, Model model) {
 
         studentService.save(student);
 
@@ -32,8 +33,8 @@ public class StudentController {
         return "student/add-student";
     }
 
-    @GetMapping(value ="/usun-studenta")
-    public String deleteStudent(@RequestParam Long id, Model model){
+    @GetMapping(value = "/usun-studenta")
+    public String deleteStudent(@RequestParam Long id, Model model) {
 
         studentService.delete(id);
 
@@ -42,16 +43,17 @@ public class StudentController {
         return "student/lista-studentow";
     }
 
-    @RequestMapping(value ="/lista-studentow", method = RequestMethod.GET)
-    public  String getAllStudents(Model model){
+    @RequestMapping(value = "/lista-studentow", method = RequestMethod.GET)
+    public String getAllStudents(Model model) {
 
         model.addAttribute("allStudents", studentService.getAllStudents());
 
         return "student/lista-studentow";
 
     }
-    @GetMapping(value ="/edytuj-studenta")
-    public String editStudent(@RequestParam Long id, Model model){
+
+    @GetMapping(value = "/edytuj-studenta")
+    public String editStudent(@RequestParam Long id, Model model) {
 
 
         model.addAttribute("student", studentService.getStudent(id));
@@ -60,5 +62,33 @@ public class StudentController {
         return "student/formularz-student-edytowany";
     }
 
+    //metoda ktora pomaga szukac studenta po konkretnej frazie
+    // do parametrow dodajemy searchPhrase i columnName (tak jak nazwalismy w html)
+    @PostMapping(value = "/szukaj")
+    public String getStudents(@RequestParam String searchPhrase,
+                              @RequestParam String columnName,
+                              Model model) {
 
+        model.addAttribute("allStudents", studentService.getStudents(searchPhrase, columnName));
+
+        return "student/lista-studentow";
+    }
+
+    //redirect - jak szukamy studenta po konkretnym parametrze i ODSWIEZYMY strone
+    // to powroci nam do znowu do listy pierwotnej
+    // czary
+    @GetMapping(value = "/szukaj")
+    public String getStudents() {
+        return "redirect:lista-studentow";
+
+    }
+
+    @GetMapping(value = "/wyszukiwanie-kurs")
+    public String getStudentsByCourse(@RequestParam String courseName,
+                                      @RequestParam String mode,
+                                      Model model){
+        model.addAttribute("allStudents", studentService.findByCourseNameAndMode(courseName, mode));
+        return "student/lista-studentow";
+    }
+    // w chromie można to potem sprawdzić wpisująć: http://localhost:8080/wyszukiwanie-kurs?courseName=Frontend&mode=dzienny
 }

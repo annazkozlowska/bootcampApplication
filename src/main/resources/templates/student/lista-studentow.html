@@ -9,11 +9,28 @@
 </head>
 <body>
 
-<h><b>Lista naszych kursantów:</b></h>
+
+<form th:action="@{/szukaj}" method="post">
+    <input type="text" name="searchPhrase" placeholder="szukana fraza">
+    <select name="columnName">
+        <option value="firstName">Imię</option>
+        <option value="lastName">Nazwisko</option>
+        <option value="email">E-mail</option>
+        <option value="phone">Telefon</option>
+        <option value="courseName">Kurs</option>
+        <option value="mode">Tryb</option>
+    </select>
+    <input type="submit" value="Szukaj">
+</form>
+
 
 <br><br>
+<a href = "/formularz-student">Dodaj nowego studenta</a>
 
 
+
+<h><b>Lista naszych kursantów:</b></h>
+<br><br>
 <table>
     <thead>
     <tr>
@@ -43,9 +60,6 @@
 </table>
 
 <br><br>
-
-<a href = "/formularz-student">Dodaj nowego studenta</a>
-
 
 
 <br><br>
