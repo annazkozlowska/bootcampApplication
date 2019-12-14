@@ -12,9 +12,7 @@
 <h><b>Lista naszych kursantów:</b></h>
 
 <br><br>
-<a href = "/formularz">Dodaj nowego studenta</a>
 
-<br><br>
 
 <table>
     <thead>
@@ -37,12 +35,18 @@
         <td th:text="*{student.phone}"></td>
         <td th:text="*{student.courseName}"></td>
         <td th:text="*{student.mode}"></td>
-        <td><a th:href="@{/usun(id=${student.id})}" th:text="usuń"></a>
-            <a th:href="@{/edytuj(id=${student.id})}" th:text="edytuj"></a>
+        <td><a th:href="@{/usun-studenta(id=${student.id})}" th:text="usuń"></a>
+            <a th:href="@{/edytuj-studenta(id=${student.id})}" th:text="edytuj"></a>
         </td>
     </tr>
     </tbody>
 </table>
+
+<br><br>
+
+<a href = "/formularz-student">Dodaj nowego studenta</a>
+
+
 
 <br><br>
 <p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>

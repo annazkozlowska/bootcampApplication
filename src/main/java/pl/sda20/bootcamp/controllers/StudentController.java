@@ -13,14 +13,14 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping(value = "/formularz")
+    @GetMapping(value = "/formularz-student")
     public String form(Model model){
 
         Student student = Student.builder().build();
 
         model.addAttribute("student", student);
 
-        return "student/formularz";
+        return "student/formularz-student";
     }
     @PostMapping(value ="/add-student")
     public String addStudent(Student student, Model model){
@@ -32,25 +32,25 @@ public class StudentController {
         return "student/add-student";
     }
 
-    @GetMapping(value ="/usun")
+    @GetMapping(value ="/usun-studenta")
     public String deleteStudent(@RequestParam Long id, Model model){
 
         studentService.delete(id);
 
         model.addAttribute("allStudents", studentService.getAllStudents());
 
-        return "student/lista-kursantow";
+        return "student/lista-studentow";
     }
 
-    @RequestMapping(value ="/kursanci", method = RequestMethod.GET)
+    @RequestMapping(value ="/lista-studentow", method = RequestMethod.GET)
     public  String getAllStudents(Model model){
 
         model.addAttribute("allStudents", studentService.getAllStudents());
 
-        return "student/lista-kursantow";
+        return "student/lista-studentow";
 
     }
-    @GetMapping(value ="/edytuj")
+    @GetMapping(value ="/edytuj-studenta")
     public String editStudent(@RequestParam Long id, Model model){
 
 

@@ -15,14 +15,14 @@ public class TrainerController {
     @Autowired
     private TrainerService trainerService;
 
-    @GetMapping(value = "/formularz2")
+    @GetMapping(value = "/formularz-trener")
     public String createTrainer(Model model){
 
         Trainer trainer = Trainer.builder().build();
 
         model.addAttribute("trainer", trainer);
 
-        return "trainer/formularz2";
+        return "trainer/formularz-trener";
     }
 
     @PostMapping(value = "/add-trainer")
@@ -35,7 +35,7 @@ public class TrainerController {
         return "trainer/add-trainer";
     }
 
-    @RequestMapping(value ="/trenerzy", method = RequestMethod.GET)
+    @RequestMapping(value ="/lista-trenerzy", method = RequestMethod.GET)
     public String getAllTrainers(Model model){
 
         model.addAttribute("allTrainers", trainerService.getAllTrainers());
@@ -44,7 +44,7 @@ public class TrainerController {
         return "trainer/lista-trenerow";
     }
 
-    @GetMapping(value ="/usun2")
+    @GetMapping(value ="/usun-trenera")
     public String deleteTrainer(@RequestParam Long id, Model model){
 
         trainerService.delete(id);
@@ -54,7 +54,7 @@ public class TrainerController {
         return "trainer/lista-trenerow";
     }
 
-    @GetMapping(value ="/edytuj2")
+    @GetMapping(value ="/edytuj-trenera")
     public String editTrainer(@RequestParam Long id, Model model){
 
 

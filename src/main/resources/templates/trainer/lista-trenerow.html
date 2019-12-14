@@ -12,6 +12,8 @@
 <h><b>Lista naszych trenerów:</b></h>
 <br><br>
 
+
+<br><br>
 <table>
     <thead>
     <tr>
@@ -32,17 +34,17 @@
         <td th:text="*{trainer.salary}"></td>
         <td th:text="*{trainer.courses}"></td>
 
-        <td><a th:href="@{/usun2(id=${trainer.id})}" th:text="usuń"></a>
-            <a th:href="@{/edytuj2(id=${trainer.id})}" th:text="edytuj"></a>
+        <td><a th:href="@{/usun-trenera(id=${trainer.id})}" th:text="usuń"></a>
+            <a th:href="@{/edytuj-trenera(id=${trainer.id})}" th:text="edytuj"></a>
         </td>
     </tr>
     </tbody>
 </table>
 
 
+<br><br>
 
-
-
+<a href = "/formularz-trener">Dodaj nowego trenera</a>
 
 <br><br>
 <p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>

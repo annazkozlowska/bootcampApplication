@@ -39,6 +39,8 @@ public class HomeController {
 //        return "forward";
 //    }
 
+
+
     @RequestMapping(value ="/kursy", method = RequestMethod.GET)
     public String listaKursow(){
         return "lista-kursow";
