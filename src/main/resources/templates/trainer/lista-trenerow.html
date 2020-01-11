@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Trenerzy</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 
 </head>
 <body>
@@ -13,7 +13,7 @@
 <br><br>
 
 
-<a href = "/formularz-trener">Dodaj nowego trenera</a>
+<a href = "/trener/formularz-trener">Dodaj nowego trenera</a>
 
 <br><br>
 <table>
@@ -22,6 +22,7 @@
         <th >Imię</th>
         <th >Nazwisko</th>
         <th >E-mail</th>
+        <th >Telefon</th>
         <th >Stawka</th>
         <th >Kursy</th>
         <th >x </th>
@@ -32,12 +33,13 @@
     <tr th:each="trainer : ${allTrainers}">
         <td th:text="*{trainer.firstName}"></td>
         <td th:text="*{trainer.lastName}"></td>
-        <td th:text="*{trainer.email}"></td>
+        <td th:text="*{trainer.mail}"></td>
+        <td th:text="*{trainer.phone}"></td>
         <td th:text="*{trainer.salary}"></td>
         <td th:text="*{trainer.courses}"></td>
 
-        <td><a th:href="@{/usun-trenera(id=${trainer.id})}" th:text="usuń"></a>
-            <a th:href="@{/edytuj-trenera(id=${trainer.id})}" th:text="edytuj"></a>
+        <td><a th:href="@{/trener/usun-trenera(id=${trainer.id})}" th:text="usuń"></a>
+            <a th:href="@{/trener/edytuj-trenera(id=${trainer.id})}" th:text="edytuj"></a>
         </td>
     </tr>
     </tbody>
@@ -46,7 +48,7 @@
 
 
 <br><br>
-<p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>
+<p><a href="/strona-glowna">Strona glówna</a></p>
 </body>
 </html>
 

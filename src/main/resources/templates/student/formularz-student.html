@@ -3,37 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
-<form th:action="@{/add-student}" method="post" th:object="${student}">
-    Imie: <input type="text" th:field="*{firstName}">
+
+<form th:action="@{/student/add-student}" method="post" th:object="${student}">
+
+    <p th:if="${#fields.hasErrors('firstName')}"
+       th:errors="*{firstName}" th:class="error"></p>
+    Imie: <input type="text"
+                 th:field="*{firstName}"
+                 th:classappend="${#fields.hasErrors('firstName')} ? 'error-input'">
+
     <br><br>
-    Nazwisko: <input type="text" th:field="*{lastName}">
+    <p th:if="${#fields.hasErrors('lastName')}"
+       th:errors="*{lastName}" th:class="error"></p>
+    Nazwisko: <input type="text"
+                     th:field="*{lastName}"
+                     th:classappend="${#fields.hasErrors('lastName')} ? 'error-input'">
     <br><br>
-    E-mail: <input type="text" th:field="*{email}">
+    <p th:if="${#fields.hasErrors('mail')}"
+       th:errors="*{mail}" th:class="error"></p>
+    E-mail: <input type="text" th:field="*{mail}"
+                   th:classappend="${#fields.hasErrors('mail')} ? 'error-input'">
     <br><br>
-    Nr telefonu: <input type="text" th:field="*{phone}">
+    <p th:if="${#fields.hasErrors('phone')}"
+       th:errors="*{phone}" th:class="error"></p>
+    Nr telefonu: <input type="text" th:field="*{phone}"
+                        th:classappend="${#fields.hasErrors('phone')} ? 'error-input'">
     <br><br>
 
-    Kursy: <select th:field="*{courseName}">
+    <p th:if="${#fields.hasErrors('courses')}"
+       th:errors="*{courses}" th:class="error"></p>
+    Kursy: <select th:field="*{courses}"
+                   th:classappend="${#fields.hasErrors('courses')} ? 'error-input'">
         <option value="Java" >Java</option>
         <option value="Frontend" >Frontend</option>
         <option value="Python" >Python</option>
     </select>
     <br><br>
 
-    Tryby: <select th:field="*{mode}">
+    <p th:if="${#fields.hasErrors('mode')}"
+       th:errors="*{courses}" th:class="error"></p>
+    Tryby: <select th:field="*{mode}"
+                   th:classappend="${#fields.hasErrors('mode')} ? 'error-input'">
     <option value="dzienny" >dzienny</option>
     <option value="wieczorowy">wieczorowy</option>
     <option value="weekendowy" >weekendowy</option>
 </select>
     <br><br>
 
+    <p th:if="${#fields.hasErrors('password')}"
+       th:errors="*{password}" class="error"></p>
+    Hasło: <input type="password"
+                  th:field="*{password}"
+                  th:classappend="${#fields.hasErrors('password')} ? 'error-input'"> <br>
+
+    <br><br>
     <input type="submit" value="Przeslij formularz">
 </form>
 <br><br>
-<p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>
+<a href="/strona-glowna">Strona glówna</a>
 
 </body>
 </html>

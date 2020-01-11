@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+
+<ul th:fragment="menu">
+<li><a th:href="@{/student/lista-studentow}">Lista studentów </a></li>
+<li><a th:href="@{/trener/lista-trenerzy}">Lista trenerów </a></li>
+<li><a th:href="@{/admin/lista-admini}">Lista adminów </a></li>
+    <li sec:authorize="isAuthenticated()">
+    <a th:href="@{/logout}">Wyloguj</a>
+    </li>
+
+<!--    autentykacja - sprawdza czy ja to ja, czy uzytkownikm jest zalogowany,
+        autoryzacja - sprawdza czy mamy dostep do danej strony-->
+</ul>
+</body>
+</html>

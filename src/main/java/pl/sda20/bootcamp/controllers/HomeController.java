@@ -10,14 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController {
 
     @RequestMapping(value ="/strona-glowna", method = RequestMethod.GET)
-    public String homePage(@RequestParam String firstName,
-                           @RequestParam int age, Model model)
-
+    public String homePage(Model model)
     {
-
-        model.addAttribute("firstName", firstName);
-        model.addAttribute("age", age);
-
 //(@RequestParam (name = imię) String firstName)
         // w przegladarce jak wpisze : http://localhost:8080/strona-glowna?imie=Ania
         // to wyswietli mi w koncli ; Witaj, Ania
@@ -40,11 +34,11 @@ public class HomeController {
 //    }
 
 
-
-    @RequestMapping(value ="/kursy", method = RequestMethod.GET)
-    public String listaKursow(){
-        return "lista-kursow";
-    }
+//?
+//    @RequestMapping(value ="/kursy", method = RequestMethod.GET)
+//    public String listaKursow(){
+//        return "lista-kursow";
+//    }
 
 
 

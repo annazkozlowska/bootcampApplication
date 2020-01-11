@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trenerzy</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+
+<h><b>Lista naszych adminów:</b></h>
+<br><br>
+
+
+<a href = "/admin/formularz-admin">Dodaj nowego admina</a>
+
+<br><br>
+<table>
+    <thead>
+    <tr>
+        <th >Imię</th>
+        <th >Nazwisko</th>
+        <th >E-mail</th>
+        <th >Telefon</th>
+        <th >x </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="admin : ${allAdmins}">
+        <td th:text="*{admin.firstName}"></td>
+        <td th:text="*{admin.lastName}"></td>
+        <td th:text="*{admin.mail}"></td>
+        <td th:text="*{admin.phone}"></td>
+
+        <td><a th:href="@{/admin/usun-admina(id=${admin.id})}" th:text="usuń"></a>
+            <a th:href="@{/admin/edytuj-admina(id=${admin.id})}" th:text="edytuj"></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<br><br>
+<p><a href="/strona-glowna">Strona glówna</a></p>
+</body>
+</html>
+

@@ -6,17 +6,17 @@
 </head>
 <body>
 
-<form th:action="@{/add-student}" method="post" th:object="${student}">
+<form th:action="@{/student/add-student}" method="post" th:object="${student}">
     Imie: <input type="text" th:field="*{firstName}">
     <br><br>
     Nazwisko: <input type="text" th:field="*{lastName}">
     <br><br>
-    E-mail: <input type="text" th:field="*{email}">
+    E-mail: <input type="text" th:field="*{mail}">
     <br><br>
     Nr telefonu: <input type="text" th:field="*{phone}">
     <br><br>
 
-    Kursy: <select th:field="*{courseName}">
+    Kursy: <select th:field="*{courses}">
     <option value="Java" >Java</option>
     <option value="Frontend" >Frontend</option>
     <option value="Python" >Python</option>
@@ -37,7 +37,7 @@
 
 <br><br>
 
-<p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>
+<p><a href="/strona-glowna">Strona glówna</a></p>
 
 </body>
 </html>

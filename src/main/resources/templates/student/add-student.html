@@ -20,7 +20,7 @@ Podsumowanie:
 
 <br><br>
 
-<span th:text="'E-mail: ' + ${student.getEmail()}"></span>
+<span th:text="'E-mail: ' + ${student.getMail()}"></span>
 
 <br><br>
 
@@ -28,7 +28,7 @@ Podsumowanie:
 
 <br><br>
 
-<span th:text="'Wybrany kurs: ' + ${student.getCourseName()}"></span>
+<span th:text="'Wybrany kurs: ' + ${student.getCourses()}"></span>
 
 <br><br>
 
@@ -40,7 +40,7 @@ Podsumowanie:
 
 
 <br><br>
-<p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>
+<p><a href="/strona-glowna">Strona glówna</a></p>
 
 
 </body>

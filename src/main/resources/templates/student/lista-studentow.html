@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Kursanci</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 
 </head>
 <body>
 
 
-<form th:action="@{/szukaj}" method="post">
+<form th:action="@{/student/szukaj}" method="post">
     <input type="text" name="searchPhrase" placeholder="szukana fraza">
     <select name="columnName">
         <option value="firstName">Imię</option>
@@ -25,10 +25,10 @@
 
 
 <br><br>
-<a href = "/formularz-student">Dodaj nowego studenta</a>
+<a href = "/student/formularz-student">Dodaj nowego studenta</a>
 
 
-
+<br><br>
 <h><b>Lista naszych kursantów:</b></h>
 <br><br>
 <table>
@@ -48,12 +48,13 @@
     <tr th:each="student : ${allStudents}">
         <td th:text="*{student.firstName}"></td>
         <td th:text="*{student.lastName}"></td>
-        <td th:text="*{student.email}"></td>
+        <td th:text="*{student.mail}"></td>
         <td th:text="*{student.phone}"></td>
-        <td th:text="*{student.courseName}"></td>
+        <td th:text="*{student.courses}"></td>
         <td th:text="*{student.mode}"></td>
-        <td><a th:href="@{/usun-studenta(id=${student.id})}" th:text="usuń"></a>
-            <a th:href="@{/edytuj-studenta(id=${student.id})}" th:text="edytuj"></a>
+        <td>
+            <a th:href="@{/student/usun-studenta(id=${student.id})}" th:text="usuń"></a>
+            <a th:href="@{/student/edytuj-studenta(id=${student.id})}" th:text="edytuj"></a>
         </td>
     </tr>
     </tbody>
@@ -63,7 +64,7 @@
 
 
 <br><br>
-<p><a href="strona-glowna?firstName=Ania&age=20">Strona glówna</a></p>
+<p><a href="/strona-glowna">Strona glówna</a></p>
 
 </body>
 </html>

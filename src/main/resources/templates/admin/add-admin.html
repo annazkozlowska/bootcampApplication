@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+Witaj, formularz przyjęty!
+
+<br><br><br>
+
+Podsumowanie:
+<br><br>
+<span th:text="'Imię: ' + ${admin.getFirstName()}"></span>
+
+<br><br>
+
+<span th:text="'Nazwisko: ' + ${admin.getLastName()}"></span>
+
+<br><br>
+
+<span th:text="'E-mail: ' + ${admin.getMail()}"></span>
+
+<br><br>
+
+<span th:text="'Telefon: ' + ${admin.getPhone()}"></span>
+
+<br><br>
+
+
+
+<p><a href="/strona-glowna">Strona glówna</a></p>
+</body>
+</html>

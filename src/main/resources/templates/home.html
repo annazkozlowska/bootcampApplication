@@ -6,17 +6,21 @@
 </head>
 <body>
 
-Witaj <span th:text=" ${firstName} + '. ' + 'Masz' + ' ' + ${age} + ' lat.'"></span>
-Jesteś <span th:if="${age}>= 18 "> pełnoletnia</span><span th:if="${age}< 18 "> niepełnoletnia</span>
+<nav th:replace="fragments/header :: menu">
+<!--    uzywamy nazwy ktora dalismy w header czyli tutaj "menu"-->
 
 
-<p><a href="/kursy">Lista kursów </a></p>
-<p><a href="/lista-studentow">Lista kursantów </a></p>
-<p><a href="/lista-trenerzy">Lista trenerów </a></p>
-<p><a href="/formularz-student">Formularz dla kursanta </a></p>
-<p><a href="/formularz-trener">Formularz dla trenera </a></p>
+</nav>
+
+<!--<li><a th:href="@{/student/lista-studentow}">Lista kursantów </a></li>-->
+<!--<li><a th:href="@{/trener/lista-trenerzy}">Lista trenerów </a></li>-->
+<!--<li><a th:href="@{/admin/lista-admini}">Lista adminów </a></li>-->
 
 
+<!--<li><a th:href="@{/student/formularz-student}">Formularz dla kursanta </a></li>-->
+<!--<li><a th:href="@{/trener/formularz-trener}">Formularz dla trenera </a></li>-->
+<!--<li><a th:href="@{/admin/formularz-admin}">Formularz dla admina </a></li>-->
+<!--<p><a th:href="@{/logout}">Wyloguj</a></p>-->
 
 </body>
 </html>

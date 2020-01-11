@@ -1,0 +1,20 @@
+th {
+    background: #555;
+    color: aliceblue;
+}
+tr:nth-child(odd) {
+    background: darksalmon;
+}
+tr:nth-child(even) {
+    background: peachpuff;
+}
+
+.error {
+    color: red;
+}
+
+
+.error-input {
+    border: 10px solid red;
+}
+
